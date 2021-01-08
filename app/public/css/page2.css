@@ -1,0 +1,109 @@
+*{margin:0; padding: 0;}
+.root{
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Rubik', sans-serif;
+}
+/* -- --*/
+.top{
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background-color: #FF432E;
+    align-items: center;
+    display: flex;
+}
+.middle{
+    position: relative;
+    width: 100%;
+    height: 70%;
+    background-color:  #F5DF65;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+.footer{
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background-color:  #424242;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* -- --*/
+.top h1{
+    font-weight: bold;
+    width: 19.5%;
+    background-color: red;
+    color: yellow;
+    border: 1px solid yellow;
+    font-size: 50px;
+    margin-left: 1%;
+    border-radius: 5px;
+}
+/* -- --*/
+.instagram_search{
+    margin-top: 5%;
+    text-align: center;
+}
+form{
+    width: 40%;
+    height: 30%;
+    margin-left: 30%;
+    background-color: #FF432E;
+    margin-top: 1%;
+    border-radius: 5px;
+}
+form input{
+    width: 70%;
+    height: 20%;
+    margin-top: 3%;
+}
+form button{
+    width: 40%;
+    height: 20%;
+    margin-top: 1%;
+}
+
+.saved{
+    width: 40%;
+    height: 10%;
+    margin-left: 30%;
+    background-color: #FF432E;
+    margin-top: 1%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    transform: scale(0.9);
+}
+.saved:hover{
+    transform: scale(1);
+}
+/*-- --*/
+.footer img{
+    width: 50px;
+    height: 50px;
+    margin-left: -20%;
+}
+.feedback{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20%;
+}
+.feedback textarea{
+    max-height: 40px;
+    max-width: 170px;
+}
+.info{
+    margin-left: 1%;
+}
