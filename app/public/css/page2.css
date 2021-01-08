@@ -40,7 +40,7 @@
 /* -- --*/
 .top h1{
     font-weight: bold;
-    width: 19.5%;
+    width: auto;
     background-color: red;
     color: yellow;
     border: 1px solid yellow;
@@ -55,7 +55,7 @@
 }
 form{
     width: 40%;
-    height: 30%;
+    height: 25%;
     margin-left: 30%;
     background-color: #FF432E;
     margin-top: 1%;
@@ -63,15 +63,22 @@ form{
 }
 form input{
     width: 70%;
-    height: 20%;
-    margin-top: 3%;
+    height: 25%;
+    margin-top: 2%;
+    font-size: 15px;
+    text-align: center;
 }
 form button{
     width: 40%;
-    height: 20%;
+    height: 25%;
     margin-top: 1%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
-
+a{
+    text-decoration: none;
+}
 .saved{
     width: 40%;
     height: 10%;
@@ -84,6 +91,7 @@ form button{
     display: flex;
     cursor: pointer;
     transform: scale(0.9);
+    color: black;
 }
 .saved:hover{
     transform: scale(1);
