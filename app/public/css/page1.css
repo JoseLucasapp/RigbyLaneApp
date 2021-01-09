@@ -73,11 +73,22 @@ form button{
     cursor: pointer;
 }
 .user_area{
-    margin-top: 3%;
+    margin-top: 1%;
     text-align: center;
 }
 .user_area p{
     margin-top: 1%;
+}
+.errors{
+    width: 40%;
+    height: 13%;
+    margin-left: 30%;
+    background-color: #FF432E;
+    margin-top: 1%;
+    border-radius: 5px;
+}
+.errors li{
+    list-style: none;
 }
 /*-- --*/
 .footer img{

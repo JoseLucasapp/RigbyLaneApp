@@ -14,3 +14,7 @@ module.exports.profilePage = (Application, req, res)=>{
     let profilePage = new Application.app.models.ReferenceDAO();
     profilePage.profilePage(req, res);
 }
+module.exports.newUser = (Application, req, res)=>{
+    let newUser = new Application.app.models.ReferenceDAO();
+    newUser.newUser(req, res);
+}

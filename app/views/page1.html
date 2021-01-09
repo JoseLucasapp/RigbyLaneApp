@@ -21,12 +21,22 @@
                         <button>Sign in</button>
                     </form>
                     <p>Don't have an account? No problem, create here.</p>
-                    <form class="logon">
+                    <form class="logon" class="login" action="/" method="POST">
                         <h2>Create Account</h2>
-                        <input type="text" placeholder="Create username"/><br />
-                        <input type="password" placeholder="Create password"/><br />
-                        <button>Sign up</button>
+                        <input value="<%=values.newUsername%>" name="newUsername" id="newUsername" type="text" placeholder="Create username"/><br />
+                        <input name="newPassword" id="newPassword" type="password" placeholder="Create password"/><br />
+                        <button type="submit">Sign up</button>
                     </form>
+                    <%if(errors.length){%>
+                        <div class="errors">
+                            <p><strong>ERRORS</strong></p>
+                            <ul>
+                            <%for(let i=0; i < errors.length; i++){%>
+                            <li><%=errors[i].msg%></li>
+                            <%}%>
+                            </ul>
+                        </div>
+                    <%}%>
                 </div>
             </div>
             <div class="footer">
@@ -45,5 +55,12 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.body.addEventListener('DOMContentLoaded',()=>{
+                if(newUser.length > 0){
+                    alert('Created')
+                }
+            })
+        </script>
     </body>
 </html>
