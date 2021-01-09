@@ -1,5 +1,6 @@
 const {validationResult} = require('express-validator');
 const mongoose = require('mongoose');
+const axios = require('axios');
 
 const User_schema = mongoose.model("Users",{
     username:{
@@ -24,21 +25,15 @@ ReferenceDAO.prototype.indexPage = (req, res)=>{
     res.render('page1', {errors: "",values:""});
 }
 ReferenceDAO.prototype.homePage = (req, res)=>{
-    const User = User_schema.findOne({newUsername: req.body.username},{projection: { _id: 0, newUsername: 1, newPassword: 1 }});
-    console.log(User._conditions);
-    if(User._conditions.newUsername === req.body.username){
-        console.log(User._conditions.newPassword === req.body.password);
-        console.log(User._conditions.newPassword);
-        console.log(req.body.password);
-    }
-    return;
-    //res.render('page2');
+    res.render('page2');
 }
 ReferenceDAO.prototype.savedPage = (req, res)=>{
     res.render('saved');
 }
-ReferenceDAO.prototype.profilePage = (req, res)=>{
-    res.render('profileData');
+ReferenceDAO.prototype.profilePage = async(req, res)=>{
+    console.log(req.body);
+    const response =  await axios.get('https://www.instagram.com/legadaodamassa/?__a=1').then(res=>{return Object.values(res.data.graphql)});
+    res.render('profileData',{results: response});
 }
 ReferenceDAO.prototype.newUser = (req, res)=>{
     let errors = validationResult(req);
