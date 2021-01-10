@@ -1,6 +1,6 @@
 const {validationResult} = require('express-validator');
 const mongoose = require('mongoose');
-const axios = require('axios').default;
+const axios = require('axios');
 
 const User_schema = mongoose.model("Users",{
     username:{
@@ -49,13 +49,15 @@ ReferenceDAO.prototype.savedPage = (req, res)=>{
     res.render('saved');
 }
 ReferenceDAO.prototype.profilePage = async(req, res)=>{
+    /*
         try {
           const response = await axios.get('https://www.instagram.com/legadaodamassa/?__a=1');
           console.log(response);
         } catch (error) {
           console.error(error);
         }
-    //res.render('profileData',{results: response});
+    */
+    res.render('profileData');
 }
 ReferenceDAO.prototype.newUser = async(req, res)=>{
     let errors = validationResult(req);
