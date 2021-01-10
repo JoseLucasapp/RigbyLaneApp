@@ -31,9 +31,17 @@
                         <div class="errors">
                             <p><strong>ERRORS</strong></p>
                             <ul>
-                            <%for(let i=0; i < errors.length; i++){%>
-                            <li><%=errors[i].msg%></li>
-                            <%}%>
+                                <%for(let i=0; i < errors.length; i++){%>
+                                <li><%=errors[i].msg%></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    <%}%>
+                    <%if(exist){%>
+                        <div class="errors">
+                            <p><strong>ERRORS</strong></p>
+                            <ul>
+                                <li><%=exist %></li>
                             </ul>
                         </div>
                     <%}%>

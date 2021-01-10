@@ -1,6 +1,9 @@
 const {body} = require('express-validator');
 module.exports = (Application)=>{
-    Application.post('/home', (req, res)=>{
+    Application.post('/home', [
+        body("username").isLength({min: 5}).withMessage("Username lower than 5 characters"),
+        body("password").isLength({min: 6}).withMessage("Password lower than 6 characters")
+    ],(req, res)=>{
         Application.app.controllers.index.homePage(Application, req, res);
     });
     Application.post('/profile', (req, res)=>{
