@@ -12,7 +12,7 @@ module.exports.indexPage = (Application, req, res)=>{
     data.indexPage(req, res);
 }
 module.exports.savedPage = (Application, req, res)=>{
-    let savedPage = new Application.app.models.ReferenceDAO();
+    let savedPage = new Application.app.models.UsersDAO();
     savedPage.savedPage(req, res);
 }
 module.exports.savedPagePost = (Application, req, res)=>{
@@ -21,6 +21,9 @@ module.exports.savedPagePost = (Application, req, res)=>{
 }
 module.exports.profilePage = async(Application, req, res)=>{
     let user = req.body.username;
+    if(!user){
+        user = req.body.userForView;
+    }
     if(!user){
         user = "instagram";
     }
@@ -33,4 +36,8 @@ module.exports.profilePage = async(Application, req, res)=>{
 module.exports.logout = (Application, req, res)=>{
     let logOut = new Application.app.models.ReferenceDAO();
     logOut.logOut(req, res);
+}
+module.exports.deleteInstaUser = (Application, req, res)=>{
+    let deleteInstaUser = new Application.app.models.UsersDAO();
+    deleteInstaUser.deleteInstaUser(req,res);
 }

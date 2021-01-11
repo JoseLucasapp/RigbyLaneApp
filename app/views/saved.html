@@ -13,7 +13,25 @@
                 <a href="/logout"><button class="logout">Log out</button></a>
             </div>
             <div class="middle">
-                <div class="profiles"></div>
+                <div class="profiles">
+                    <% if(savedProfilesData){%>
+                        <ul>
+                            <%for(let i=0; i < savedProfilesData.savedProfiles.length; i++){%>
+                                <li>
+                                    <%=savedProfilesData.savedProfiles[i]%>
+                                    <form action="/deleteInstaUser" method="post">
+                                        <input type="hidden" name="userForDelete" value="<%=savedProfilesData.savedProfiles[i]%>">
+                                        <button>Delete</button>
+                                    </form>
+                                    <form action="/profile" method="POST">
+                                        <input type="hidden" name="userForView" value="<%=savedProfilesData.savedProfiles[i]%>">
+                                        <button>View</button>
+                                    </form>
+                                </li>
+                            <%}%>
+                        </ul>
+                    <%}%>
+                </div>
             </div>
             <div class="footer">
                 <div class="info">

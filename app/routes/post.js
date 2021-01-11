@@ -15,4 +15,8 @@ module.exports = (Application)=>{
     ],(req, res)=>{
         Application.app.controllers.index.newUser(Application, req, res);
     });
+
+    Application.post('/deleteInstaUser',(req, res)=>{
+        Application.app.controllers.index.deleteInstaUser(Application, req, res);
+    });
 }

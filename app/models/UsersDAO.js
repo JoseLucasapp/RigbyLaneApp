@@ -74,20 +74,33 @@ UsersDAO.prototype.newUser = async(req, res)=>{
 }
 
 UsersDAO.prototype.savedPagePost = async(req, res)=>{
-    /*
-    User_schema.findOneAndUpdate(
-        { username: req.session.username },
-        { $push: { savedProfiles: req.body.instaUser } },
-        { upsert: false }
-      );*/
     User_schema.findOneAndUpdate(
         { username: req.session.username },
         { $push: { savedProfiles: req.body.instaUser } },
     ).exec();
 
-    res.render('saved');
+    res.render('saved', {savedProfilesData : ""});
+}
+UsersDAO.prototype.savedPage = (req, res)=>{
+    if(req.session.authorized){
+        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
+            res.render('saved', {savedProfilesData : usersData[0]});
+        });
+    }else{
+        res.render('page1', {msg: "",exist: "", errors: "",values:""});
+    }
 }
 
+UsersDAO.prototype.deleteInstaUser = (req, res)=>{
+    console.log(req.body.userForDelete);
+    if(req.session.authorized){
+        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
+            res.render('saved', {savedProfilesData : usersData[0]});
+        });
+    }else{
+        res.render('page1', {msg: "",exist: "", errors: "",values:""});
+    }
+}
 module.exports = ()=>{
     return UsersDAO;
 }
