@@ -45,6 +45,14 @@
                             </ul>
                         </div>
                     <%}%>
+                    <%if(msg){%>
+                        <div class="errors">
+                            <p><strong>MESSAGE</strong></p>
+                            <ul>
+                                <li><%=msg %></li>
+                            </ul>
+                        </div>
+                    <%}%>
                 </div>
             </div>
             <div class="footer">
@@ -52,23 +60,10 @@
                     <p>Developed by José Lucas</p>
                     <p>Santa Luzia, state of Paraíba, Brazil</p>
                 </div>
-                <div class="feedback">
-                    <label>Feedback</label><br />
-                    <input placeholder="your email"/><br />
-                    <textarea></textarea><br />
-                    <button>Send</button>
-                </div>
                 <div>
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/07-design-and-development/node-js.png" title="nodeJS"/>
                 </div>
             </div>
         </div>
-        <script>
-            document.body.addEventListener('DOMContentLoaded',()=>{
-                if(newUser.length > 0){
-                    alert('Created')
-                }
-            })
-        </script>
     </body>
 </html>

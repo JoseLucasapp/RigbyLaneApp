@@ -96,16 +96,6 @@ form button{
     height: 50px;
     margin-left: -20%;
 }
-.feedback{
-    display: block;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20%;
-}
-.feedback textarea{
-    max-height: 40px;
-    max-width: 170px;
-}
 .info{
     margin-left: 1%;
 }

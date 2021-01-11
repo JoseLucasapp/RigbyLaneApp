@@ -10,32 +10,30 @@
         <div id="root" class="root">
             <div class="top">
                 <h1>Rigby Lane</h1>
+                <a href="/logout"><button class="logout">Log out</button></a>
             </div>
             <div class="middle">
                 <div class="profileData">
-                    <p>Bio: results[0].biography%></p>
-                    <p>É verificado: results[0].is_verified%></p>
-                    <p>Fullname: results[0].full_name%></p>
-                    <p>Seguindo: results[0].edge_follow.count%></p>
-                    <p>Seguidores: results[0].edge_followed_by.count%></p>
-                    <p>É privado: results[0].is_private%></p>
-                    <p>user: results[0].username%></p>
-                    <p>Categoria: results[0].category_name%></p>
-                    <p>posts: esults[0].edge_owner_to_timeline_media.count%></p>
-                    <p>results[0].external_url</p>
-                    <p>results[0].profile_pic_url </p>
+                    <div class="profileInfo">
+                        <p id="username"><%=response.username%></p>
+                        <img id="profile_pic" src="<%=response.profile_pic_url%>" />
+                        <p id="fullname"><%=response.full_name%></p>
+                        <p id="followInfo"> Posts:<span id="posts"><%=response.edge_owner_to_timeline_media.count%></span> | Follow:<span id="follow"><%=response.edge_follow.count%></span> | Followers:<span id="followers"><%=response.edge_followed_by.count%></span></p>
+                        <p id="others"><span class="private"><%=response.is_private ? "Private" : "Public"%></span> | <span class="verified"><%=response.is_verified ? "Verified":"Not verified"%></span></p>
+                        <p id="category">Category: <%=response.category_name%></p>
+                        <p id="biography"><%=response.biography%></p>
+                        <a id="externalLink" href="<%=response.external_url %>"><%=response.external_url%></a><br />
+                        <form action="/saved" method="POST">
+                            <input name="instaUser" type="hidden" value="<%=response.username%>">
+                            <button>SAVE</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="footer">
                 <div class="info">
                     <p>Developed by José Lucas</p>
                     <p>Santa Luzia, state of Paraíba, Brazil</p>
-                </div>
-                <div class="feedback">
-                    <label>Feedback</label><br />
-                    <input placeholder="your email"/><br />
-                    <textarea></textarea><br />
-                    <button>Send</button>
                 </div>
                 <div>
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/07-design-and-development/node-js.png" title="nodeJS"/>
