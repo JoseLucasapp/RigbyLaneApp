@@ -42,13 +42,13 @@
 </p>
 
 ## Imagens
-<img src="./homePage.png" width="300px" height="200px" />
+<img src="./homePage.png" width="500px" height="300px" />
 <p>Página inicial, o campo circulado é onde aparecem mensagens personalizadas, por exemplo "Good Bye" quando o usuário faz log out.</p>
-<img src="./indexPage.png" width="300px" height="200px" />
+<img src="./indexPage.png" width="500px" height="300px" />
 <p>Página principal, com o campo para digitar o username do perfil desejado e com os botões de LOG OUT e de DELETAR CONTA.</p>
-<img src="./profileDataPage.png" width="300px" height="200px" />
+<img src="./profileDataPage.png" width="500px" height="300px" />
 <p>Página onde se visualiza os dados do perfil desejado.</p>
-<img src="./savedPage.png" width="300px" height="200px" />
+<img src="./savedPage.png" width="500px" height="300px" />
 <p>Página onde ficam os perfis salvos, Circulados o nome do usuário salvo, o botão VIEW que quando clicado busca pelo perfil e  botão DELETE que remove o perfil da lista de salvos.</p>
 
 ## Informações importantes
