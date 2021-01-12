@@ -1,16 +1,10 @@
 # Reporte-desafio-tecnico
 
 # Ferramentas usadas
-<p>
+<p align='center'>
 <table>
   <tr>
-    <th>Javascript</th>
-  </tr>
-  <tr>
-    <td>NodeJS</td>
     <td>Express</td>
-  </tr>
-  <tr>
     <td>Axios</td>
     <td>Body-Parser</td>
     <td>Consign</td>
@@ -23,6 +17,12 @@
 </p>
 # Como usar
 
+  ```shell
+  1- cd "seu diretório desejado"
+  2- git clone https://github.com/JoseLucasapp/Reporte-desafio-tecnico
+  3- cd Reporte-desafio-tecnico
+  4- npm start
+  ```
 # Rotas
 
 # Informações importantes
