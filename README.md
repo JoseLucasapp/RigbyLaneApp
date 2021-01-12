@@ -41,6 +41,12 @@
   </ul>
 </p>
 
+## Imagens
+<img src"./homePage.png" width="100px" height="100px" />
+<img src"./indexPage.png" width="100px" height="100px" />
+<img src"./savedPage.png" width="100px" height="100px" />
+<img src"./profileData.png" width="100px" height="100px" />
+
 ## Informações importantes
 
 <p>A conexão com o instagram está irregular, em alguns momentos retorna resultados em outros não, nos dias 8,9 e 11 funcionou, porém nos dias 10 e 12 não funcionou</p>
