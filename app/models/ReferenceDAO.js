@@ -3,6 +3,14 @@ const {validationResult} = require('express-validator');
 function ReferenceDAO(){
     
 }
+ReferenceDAO.prototype.getHome = (req, res)=>{
+    if(req.session.authorized){
+        res.render("page2", {user: req.session.username});
+    }
+    else{
+        res.render('page1', {msg: "Good Bye" ,exist: "", errors: "",values:""});
+    }
+}
 
 ReferenceDAO.prototype.indexPage = (req, res, results)=>{
     if(req.session.authorized){
@@ -26,15 +34,6 @@ ReferenceDAO.prototype.logOut = (req, res)=>{
     req.session.destroy((err)=>{
         res.render('page1', {msg: "Good Bye" ,exist: "", errors: "",values:""});
     });
-}
-
-ReferenceDAO.prototype.getHome = (req, res)=>{
-    if(req.session.authorized){
-        res.render("page2", {user: req.session.username});
-    }
-    else{
-        res.render('page1', {msg: "Good Bye" ,exist: "", errors: "",values:""});
-    }
 }
 
 module.exports = ()=>{

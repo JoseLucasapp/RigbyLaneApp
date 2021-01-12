@@ -1,25 +1,8 @@
 const {validationResult} = require('express-validator');
-const mongoose = require('mongoose');
-
-const User_schema = mongoose.model("Users",{
-    username:{
-        type: String,
-        lowercase:true,
-        require: true
-    },
-    password:{
-        type: String,
-        require: true
-    },
-    savedProfiles:[]
-});
+const User_schema = require('../../config/user');
 
 function UsersDAO(){
-    const MongoDB_URL = process.env.MongoDB_URL || 'mongodb://localhost:27017/rigbylane';
-    mongoose.connect(MongoDB_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+    
 }
 
 UsersDAO.prototype.homePage = async(req, res)=>{
@@ -70,40 +53,6 @@ UsersDAO.prototype.newUser = async(req, res)=>{
             req.session.username = data.username;
             res.render('page2', {user: req.session.username});
         }
-    }
-}
-
-UsersDAO.prototype.savedPagePost = async(req, res)=>{
-    User_schema.findOneAndUpdate(
-        { username: req.session.username },
-        { $push: { savedProfiles: req.body.instaUser } },
-    ).exec((err)=>{
-        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
-            res.render('saved', {savedProfilesData : usersData[0]});
-        });
-    });
-}
-UsersDAO.prototype.savedPage = (req, res)=>{
-    if(req.session.authorized){
-        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
-            res.render('saved', {savedProfilesData : usersData[0]});
-        });
-    }else{
-        res.render('page1', {msg: "",exist: "", errors: "",values:""});
-    }
-}
-
-UsersDAO.prototype.deleteInstaUser = (req, res)=>{
-
-    if(req.session.authorized){
-        User_schema.findOneAndUpdate({ username: req.session.username }
-            , {$pull: {savedProfiles: req.body.userForDelete}}).exec(()=>{
-                User_schema.find({username: req.session.username}).exec((err, usersData)=>{
-                    res.render('saved', {savedProfilesData : usersData[0]});
-                });
-            });
-    }else{
-        res.render('page1', {msg: "",exist: "", errors: "",values:""});
     }
 }
 
