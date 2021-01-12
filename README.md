@@ -6,13 +6,13 @@
 <table>
   <tr>
     <td>Express</td>
+    <td>Express-Session</td>
+    <td>Express-Validator</td>
     <td>Axios</td>
     <td>Body-Parser</td>
     <td>Consign</td>
-    <td>Express-Session</td>
-    <td>Express-Validator</td>
-    <td>Mongoose</td>
     <td>EJS</td>
+    <td>Mongoose</td>
     <td>MongoDB</td>
     <td>Arquitetura MVC</td>
   </tr>
@@ -22,7 +22,7 @@
 ## Como usar
 
   ```shell
-  1- initialize the mongoDB server
+  1- inicialize o servidor mongoDB
   2- cd "seu diretório desejado"
   3- git clone https://github.com/JoseLucasapp/Reporte-desafio-tecnico
   4- cd Reporte-desafio-tecnico
