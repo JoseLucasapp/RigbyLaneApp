@@ -9,7 +9,7 @@
     <body>
         <div id="root" class="root">
             <div class="top">
-                <h1>Rigby Lane</h1>
+                <a href="/home"><h1>Rigby Lane</h1></a>
                 <a href="/logout"><button class="logout">Log out</button></a>
             </div>
             <div class="middle">
@@ -20,7 +20,7 @@
                         <p id="fullname"><%=response.full_name%></p>
                         <p id="followInfo"> Posts:<span id="posts"><%=response.edge_owner_to_timeline_media.count%></span> | Follow:<span id="follow"><%=response.edge_follow.count%></span> | Followers:<span id="followers"><%=response.edge_followed_by.count%></span></p>
                         <p id="others"><span class="private"><%=response.is_private ? "Private" : "Public"%></span> | <span class="verified"><%=response.is_verified ? "Verified":"Not verified"%></span></p>
-                        <p id="category">Category: <%=response.category_name%></p>
+                        <p id="category">Category: <%=response.category_name ? response.category_name : "not found"%></p>
                         <p id="biography"><%=response.biography%></p>
                         <a id="externalLink" href="<%=response.external_url %>"><%=response.external_url%></a><br />
                         <form action="/saved" method="POST">

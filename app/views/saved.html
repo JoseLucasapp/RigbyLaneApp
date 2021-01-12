@@ -9,28 +9,32 @@
     <body>
         <div id="root" class="root">
             <div class="top">
-                <h1>Rigby Lane</h1>
+                <a href="/home"><h1>Rigby Lane</h1></a>
                 <a href="/logout"><button class="logout">Log out</button></a>
             </div>
             <div class="middle">
                 <div class="profiles">
-                    <% if(savedProfilesData){%>
-                        <ul>
-                            <%for(let i=0; i < savedProfilesData.savedProfiles.length; i++){%>
-                                <li>
-                                    <%=savedProfilesData.savedProfiles[i]%>
-                                    <form action="/deleteInstaUser" method="post">
-                                        <input type="hidden" name="userForDelete" value="<%=savedProfilesData.savedProfiles[i]%>">
-                                        <button>Delete</button>
-                                    </form>
-                                    <form action="/profile" method="POST">
-                                        <input type="hidden" name="userForView" value="<%=savedProfilesData.savedProfiles[i]%>">
-                                        <button>View</button>
-                                    </form>
-                                </li>
+                    <h2>Saved Profiles</h2>
+                        <div class="userSaved">
+                            <%if(savedProfilesData){%>
+                            <ul>
+                                <%for(let i=0; i < savedProfilesData.savedProfiles.length; i++){%>
+                                    <li>
+                                        <%=savedProfilesData.savedProfiles[i]%>
+                                        <div class="formGroup">
+                                        <form action="/deleteInstaUser" method="post">
+                                            <input type="hidden" name="userForDelete" value="<%=savedProfilesData.savedProfiles[i]%>">
+                                            <button>Delete</button>
+                                        </form>
+                                        <form action="/profile" method="POST">
+                                            <input type="hidden" name="userForView" value="<%=savedProfilesData.savedProfiles[i]%>">
+                                            <button>View</button>
+                                        </form>
+                                    </li>
+                                <%}%>
+                            </ul>
                             <%}%>
-                        </ul>
-                    <%}%>
+                        </div>
                 </div>
             </div>
             <div class="footer">

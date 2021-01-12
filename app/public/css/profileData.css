@@ -38,7 +38,7 @@
 /* -- --*/
 .top h1{
     font-weight: bold;
-    width: auto;
+    width: max-content;
     background-color: red;
     color: yellow;
     border: 1px solid yellow;

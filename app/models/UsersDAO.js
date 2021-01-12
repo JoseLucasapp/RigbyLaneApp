@@ -32,7 +32,7 @@ UsersDAO.prototype.homePage = async(req, res)=>{
         const User = await User_schema.find({username: data.username});
         const Pass = await User_schema.find({password: data.password})
         if(User.length == 0){
-            res.render('page1', {msg: "",exist: "Incorrect Username", errors: "", values: data});
+            res.render('page1', {msg: "",exist: "Username do not exists", errors: "", values: data});
             return;
         }
         if(Pass.length == 0){
@@ -42,7 +42,7 @@ UsersDAO.prototype.homePage = async(req, res)=>{
             req.session.authorized = true;
             req.session.username = data.username;
             if(req.session.authorized){
-                res.render('page2');
+                res.render('page2', {user: req.session.username});
             }
         }
     }
@@ -68,7 +68,7 @@ UsersDAO.prototype.newUser = async(req, res)=>{
             AddNewUser.save();
             req.session.authorized = true;
             req.session.username = data.username;
-            res.render('page2');
+            res.render('page2', {user: req.session.username});
         }
     }
 }
@@ -77,9 +77,11 @@ UsersDAO.prototype.savedPagePost = async(req, res)=>{
     User_schema.findOneAndUpdate(
         { username: req.session.username },
         { $push: { savedProfiles: req.body.instaUser } },
-    ).exec();
-
-    res.render('saved', {savedProfilesData : ""});
+    ).exec((err)=>{
+        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
+            res.render('saved', {savedProfilesData : usersData[0]});
+        });
+    });
 }
 UsersDAO.prototype.savedPage = (req, res)=>{
     if(req.session.authorized){
@@ -92,15 +94,33 @@ UsersDAO.prototype.savedPage = (req, res)=>{
 }
 
 UsersDAO.prototype.deleteInstaUser = (req, res)=>{
-    console.log(req.body.userForDelete);
+
     if(req.session.authorized){
-        User_schema.find({username: req.session.username}).exec((err, usersData)=>{
-            res.render('saved', {savedProfilesData : usersData[0]});
-        });
+        User_schema.findOneAndUpdate({ username: req.session.username }
+            , {$pull: {savedProfiles: req.body.userForDelete}}).exec(()=>{
+                User_schema.find({username: req.session.username}).exec((err, usersData)=>{
+                    res.render('saved', {savedProfilesData : usersData[0]});
+                });
+            });
     }else{
         res.render('page1', {msg: "",exist: "", errors: "",values:""});
     }
 }
+
+UsersDAO.prototype.deleteAccount = (req, res)=>{
+    if(req.session.authorized){
+        User_schema.findOneAndDelete({username: req.session.username}).exec(
+            (err)=>{
+                req.session.destroy((err)=>{
+                    res.render('page1', {msg: "Account deleted" ,exist: "", errors: "",values:""});
+                });
+            }
+        );
+    }else{
+        res.render('page1', {msg: "Account not deleted",exist: "", errors: "",values:""});
+    }
+}
+
 module.exports = ()=>{
     return UsersDAO;
 }

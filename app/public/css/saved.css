@@ -38,7 +38,7 @@
 /* -- --*/
 .top h1{
     font-weight: bold;
-    width: auto;
+    width: max-content;
     background-color: red;
     color: yellow;
     border: 1px solid yellow;
@@ -69,14 +69,38 @@
     background-color: #FF432E;
     margin-left: 30%;
     border-radius: 5px;
+    text-align: center;
+}
+li{
+    list-style: none;
 }
 @media(max-width: 500px){
     .profiles{
         height: 97%;
     }
 }
+.userSaved{
+    width: 80%;
+    height: max-content;
+    max-height: 50%;
+    overflow-y: scroll;
+    margin-left: 10%;
+    text-align: left;
+    justify-content: space-between;
+}
+.formGroup button{
+    width: auto;
+    height: max-content;
+    cursor: pointer;
+    background-color:#F5DF65 ;
+    border: 1px solid #F5DF65;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+}
 a{
     text-decoration: none;
+    font-size: 50px;
 }
 /*-- --*/
 .footer img{
