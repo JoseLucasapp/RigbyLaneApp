@@ -54,9 +54,5 @@
 <img src="./savedPage.png" width="500px" height="300px" />
 <p>Página onde ficam os perfis salvos, circulados o nome do usuário salvo, o botão VIEW que quando clicado busca pelo perfil e o botão DELETE que remove o perfil da lista de salvos.</p>
 
-## Informações importantes
-
-<p>A conexão com o instagram está irregular, em alguns momentos retorna resultados em outros não, nos dias 8, 9, 11 e 13 funcionou, porém nos dias 10 e 12 não funcionou</p>
-
 ## Author
 <a href="https://www.instagram.com/jlucasgf/?hl=pt-br">José Lucas</a>
