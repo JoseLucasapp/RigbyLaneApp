@@ -1,29 +1,3 @@
-
-//----- UsersDAO -----
-module.exports.homePage = (Application, req, res)=>{
-    let homePage = new Application.app.models.UsersDAO();
-    homePage.homePage(req, res);
-}
-module.exports.newUser = (Application, req, res)=>{
-    let newUser = new Application.app.models.UsersDAO();
-    newUser.newUser(req, res);
-}
-
-//----- InstaDAO -----
-module.exports.savedPage = (Application, req, res)=>{
-    let savedPage = new Application.app.models.InstaDAO();
-    savedPage.savedPage(req, res);
-}
-module.exports.savedPagePost = (Application, req, res)=>{
-    let savedPagePost = new Application.app.models.InstaDAO();
-    savedPagePost.savedPagePost(req, res);
-}
-module.exports.deleteInstaUser = (Application, req, res)=>{
-    let deleteInstaUser = new Application.app.models.InstaDAO();
-    deleteInstaUser.deleteInstaUser(req,res);
-}
-
-//----- ReferenceDAO -----
 module.exports.indexPage = (Application, req, res)=>{
     let data = new Application.app.models.ReferenceDAO();
     data.indexPage(req, res);

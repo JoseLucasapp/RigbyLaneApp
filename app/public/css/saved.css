@@ -82,7 +82,7 @@ li{
 .userSaved{
     width: 80%;
     height: max-content;
-    max-height: 50%;
+    max-height: 80%;
     overflow-y: scroll;
     margin-left: 10%;
     text-align: left;

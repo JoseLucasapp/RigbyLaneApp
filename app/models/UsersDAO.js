@@ -49,9 +49,8 @@ UsersDAO.prototype.newUser = async(req, res)=>{
                 password: req.body.newPassword
             });
             AddNewUser.save();
-            req.session.authorized = true;
-            req.session.username = data.username;
-            res.render('page2', {user: req.session.username});
+            res.render('page1', {msg: "New user created successfully",exist: "", errors: "", values: data});
+            return;
         }
     }
 }
